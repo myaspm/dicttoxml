@@ -375,7 +375,7 @@ def convert_kv(key, val, attr_type, cdata=False, attr=None):
     attrstring = make_attrstring(attr)
     return '<%s%s>%s</%s>' % (
         key, attrstring,
-        wrap_cdata(val) if cdata == True else escape_xml(val),
+        wrap_cdata(val) if cdata == True and type(val) == str else escape_xml(val),
         key
     )
 
